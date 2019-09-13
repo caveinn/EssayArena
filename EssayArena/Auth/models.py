@@ -6,8 +6,6 @@ from datetime import datetime, timedelta
 from django.conf import settings
 
 
-
-
 class User(AbstractBaseUser):
     ADMIN = "ADMIN"
     WRITER = "WR"

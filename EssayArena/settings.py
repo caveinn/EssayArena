@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'EssayArena.Auth',
+    'EssayArena.Orders',
     'corsheaders',
     'rest_framework',
 

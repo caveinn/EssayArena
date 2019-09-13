@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .views import  RegistrationView, LoginAPIView
+from .views import RegistrationView, LoginAPIView
 
 router = routers.SimpleRouter()
 
