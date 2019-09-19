@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'EssayArena.Orders',
     'corsheaders',
     'rest_framework',
+    'channels',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,7 +75,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'EssayArena.wsgi.application'
+#channels
+#https://channels.readthedocs.io/en/latest/
+ASGI_APPLICATION = 'EssayArena.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('127.0.0.1', 6379)],
+        }
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

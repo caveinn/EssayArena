@@ -9,7 +9,7 @@ class Order(models.Model):
     STARTED = "STARTED"
     FINISHED = "FINISHED"
     REJECTED = "REJECTED"
-    status_choises = [
+    status_choices = [
         (PENDING, "pending"),
         (ASSIGNED, "assigned"),
         (STARTED,"started"),
@@ -20,13 +20,20 @@ class Order(models.Model):
     status = models.CharField(max_length=10)
     title = models.CharField(max_length=200)
     body = models.TextField()
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    cost = models.DecimalField(max_digits=20, decimal_places=2)
 
 
 class Application(models.Model):
     PENDING = "PENDING"
     ACCEPTED = "ACCEPTED"
     REJECTED = "REJECTED"
+    status_choices = [
+        (PENDING, "pending"),
+        (ACCEPTED, "accepted"),
+        (REJECTED, "rejected")
+
+    ]
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     status = models.CharField(max_length=10)
+    bid_price = models.DecimalField(decimal_places=2, max_digits=20)

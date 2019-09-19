@@ -1,9 +1,11 @@
 from rest_framework import serializers
-from .models import Order
+from .models import Order, Application
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    status = serializers.ChoiceField(Order.status_choises, required=False)
+    status = serializers.ChoiceField(Order.status_choices, required=False)
 
     class Meta:
         model = Order
@@ -21,6 +23,22 @@ class OrderSerializer(serializers.ModelSerializer):
             body=validated_data.get('body'),
         )
         order.save()
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            'chat_trial',
+            {
+                "type": "new_order",
+                'order': {
+                    **validated_data,
+                    "cost": 0
+                }
+            }
+        )
         return order
 
 
+class ApplicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Application
+        fields = '__all__'
+        read_only_fields = ['order', 'applicant']
