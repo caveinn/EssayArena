@@ -21,6 +21,7 @@ class OrderSerializer(serializers.ModelSerializer):
             cost=validated_data.get("cost"),
             title=validated_data.get('title'),
             body=validated_data.get('body'),
+            files=validated_data.get("files")
         )
         order.save()
         channel_layer = get_channel_layer()
@@ -30,11 +31,14 @@ class OrderSerializer(serializers.ModelSerializer):
                 "type": "new_order",
                 'order': {
                     **validated_data,
-                    "cost": float(validated_data["cost"])
+                    "cost": float(validated_data["cost"]),
+                    "ordered_by": user.id
                 }
             }
         )
         return order
+
+
 
 
 class ApplicationSerializer(serializers.ModelSerializer):
