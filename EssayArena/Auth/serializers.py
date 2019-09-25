@@ -34,8 +34,6 @@ class LoginSerializer(serializers.Serializer):
 
     def create(self, data):
         user = authenticate(username=data.get("email"), password=data.get("password"))
-        print(data)
-        print(user)
         if not user:
             raise serializers.ValidationError("Invalid email or password")
         return {
