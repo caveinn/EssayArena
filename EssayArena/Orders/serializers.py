@@ -30,7 +30,7 @@ class OrderSerializer(serializers.ModelSerializer):
                 "type": "new_order",
                 'order': {
                     **validated_data,
-                    "cost": 0
+                    "cost": float(validated_data["cost"])
                 }
             }
         )
