@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Order
 from .serializers import OrderSerializer
-from EssayArena.core.permissions import IsAdmin, IsClient
+from EssayArena.core.permissions import IsAdmin, IsClient, IsOwnerOrReadOnly
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 
@@ -43,10 +43,9 @@ class OrderViewset(ModelViewSet):
         )
         return Response(serializer.data)
 
-
     def get_permissions(self):
         if self.action == 'create' or self.action == 'update' or self.action == 'partial_update':
-            permission_classes = [IsClient]
+            permission_classes = [IsClient, IsOwnerOrReadOnly]
         else:
             permission_classes = [IsAuthenticated]
         return [permision() for permision in permission_classes]

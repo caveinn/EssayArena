@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="879e8c41-17e9-4089-9ba5-336f000c97ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/EssayArena/Orders/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/EssayArena/Orders/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EssayArena/Orders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/EssayArena/Orders/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EssayArena/Orders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/EssayArena/Orders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EssayArena/core/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/EssayArena/core/permissions.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EssayArena/core/permissions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+            <state relative-caret-position="555">
+              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -70,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EssayArena/Orders/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+            <state relative-caret-position="525">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -82,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EssayArena/Orders/consumers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+            <state relative-caret-position="229">
+              <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -153,16 +154,16 @@
         <option value="$PROJECT_DIR$/EssayArena/Auth/urls.py" />
         <option value="$PROJECT_DIR$/EssayArena/urls.py" />
         <option value="$PROJECT_DIR$/EssayArena/Orders/urls.py" />
-        <option value="$PROJECT_DIR$/EssayArena/core/permissions.py" />
         <option value="$PROJECT_DIR$/EssayArena/Auth/serializers.py" />
         <option value="$PROJECT_DIR$/EssayArena/sample.py" />
         <option value="$PROJECT_DIR$/EssayArena/Orders/routing.py" />
         <option value="$PROJECT_DIR$/EssayArena/routing.py" />
         <option value="$PROJECT_DIR$/EssayArena/settings.py" />
-        <option value="$PROJECT_DIR$/EssayArena/Orders/models.py" />
         <option value="$PROJECT_DIR$/EssayArena/Orders/serializers.py" />
         <option value="$PROJECT_DIR$/EssayArena/Orders/views.py" />
         <option value="$PROJECT_DIR$/EssayArena/Orders/consumers.py" />
+        <option value="$PROJECT_DIR$/EssayArena/core/permissions.py" />
+        <option value="$PROJECT_DIR$/EssayArena/Orders/models.py" />
       </list>
     </option>
   </component>
@@ -188,6 +189,12 @@
               <item name="EssayArena" type="b2602c69:ProjectViewProjectNode" />
               <item name="EssayArena" type="462c0819:PsiDirectoryNode" />
               <item name="EssayArena" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EssayArena" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EssayArena" type="462c0819:PsiDirectoryNode" />
+              <item name="EssayArena" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EssayArena" type="b2602c69:ProjectViewProjectNode" />
@@ -268,12 +275,12 @@
       <workItem from="1568920091712" duration="2297000" />
       <workItem from="1568987540243" duration="86000" />
       <workItem from="1569431155600" duration="251000" />
-      <workItem from="1569431700344" duration="10714000" />
+      <workItem from="1569431700344" duration="11651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38304000" />
+    <option name="totallyTimeSpent" value="39241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-267" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -486,32 +493,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EssayArena/Orders/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EssayArena/Orders/routing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#18#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EssayArena/core/permissions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -545,10 +532,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EssayArena/Orders/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        <state relative-caret-position="229">
+          <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EssayArena/core/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EssayArena/Orders/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

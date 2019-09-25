@@ -2,9 +2,6 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from EssayArena.Auth.models import User
 
-
-
-
 class Order(models.Model):
     PENDING = "PENDING"
     ASSIGNED = "ASSIGNED"
