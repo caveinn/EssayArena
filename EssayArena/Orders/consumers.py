@@ -49,6 +49,11 @@ class OrderConsumer(WebsocketConsumer):
             order_obj
         ))
 
+    def delete_order(self, order_obj):
+        self.send(text_data=json.dumps(
+            order_obj
+        ))
+
 
 
 

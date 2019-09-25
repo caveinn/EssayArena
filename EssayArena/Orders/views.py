@@ -29,6 +29,21 @@ class OrderViewset(ModelViewSet):
         )
         return Response(serializer.data)
 
+    def destroy(self, request, *args, **kwargs):
+        order = self.get_object()
+        serializer = self.serializer_class(order)
+        order.delete()
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            'chat_trial',
+            {
+                "type": "delete_order",
+                'order': serializer.data
+            }
+        )
+        return Response(serializer.data)
+
+
     def get_permissions(self):
         if self.action == 'create' or self.action == 'update' or self.action == 'partial_update':
             permission_classes = [IsClient]
