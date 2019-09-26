@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from EssayArena.Auth.models import User
 
+
 class Order(models.Model):
     PENDING = "PENDING"
     ASSIGNED = "ASSIGNED"
@@ -11,7 +12,7 @@ class Order(models.Model):
     status_choices = [
         (PENDING, "pending"),
         (ASSIGNED, "assigned"),
-        (STARTED,"started"),
+        (STARTED, "started"),
         (FINISHED, "finished")
 
     ]
@@ -35,5 +36,5 @@ class Bid(models.Model):
     ]
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    status = models.CharField(max_length=10)
+    status = models.CharField(max_length=10, default=PENDING)
     bid_price = models.DecimalField(decimal_places=2, max_digits=20, default=1.0)

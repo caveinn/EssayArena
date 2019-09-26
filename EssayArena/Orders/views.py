@@ -58,6 +58,12 @@ class BidViewSet(ModelViewSet):
     serializer_class = BidSerializer
     permission_classes = (AllowAny,)
 
-    def get_queryset(self):
-        print(dir(self))
-        return Bid.objects.filter(pk=1)
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        print(data, kwargs)
+        data.update({'bidder': request.user.pk, "order": int(kwargs["order_pk"])})
+        serializer = self.serializer_class(data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+

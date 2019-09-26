@@ -14,7 +14,6 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = self.context['request'].user
-        print(type(user))
         order = Order(
             status=Order.PENDING,
             ordered_by=user,
@@ -43,4 +42,4 @@ class BidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bid
         fields = '__all__'
-        read_only_fields = ['order', 'applicant']
+        required_fields = ['bid_price']
