@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import Order, Bid
 from rest_framework.permissions import AllowAny
 from .serializers import OrderSerializer, BidSerializer
-from EssayArena.core.permissions import IsClient, IsOwnerOrReadOnly
+from EssayArena.core.permissions import IsClient, IsOwnerOrReadOnly, IsWriter
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 
@@ -56,14 +56,14 @@ class OrderViewset(ModelViewSet):
 class BidViewSet(ModelViewSet):
     queryset = Bid.objects.all()
     serializer_class = BidSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (IsOwnerOrReadOnly, IsWriter)
 
     def create(self, request, *args, **kwargs):
         data = request.data
-        print(data, kwargs)
         data.update({'bidder': request.user.pk, "order": int(kwargs["order_pk"])})
         serializer = self.serializer_class(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
 

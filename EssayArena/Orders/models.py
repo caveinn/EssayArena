@@ -37,4 +37,7 @@ class Bid(models.Model):
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, default=PENDING)
-    bid_price = models.DecimalField(decimal_places=2, max_digits=20, default=1.0)
+    bid_price = models.DecimalField(decimal_places=2, max_digits=20)
+
+    class Meta:
+        unique_together = ('bidder', 'order')

@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Order, Bid
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-
+from rest_framework.validators import UniqueTogetherValidator
 
 class OrderSerializer(serializers.ModelSerializer):
     status = serializers.ChoiceField(Order.status_choices, required=False)
