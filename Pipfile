@@ -13,8 +13,7 @@ djangorestframework-simplejwt = "*"
 django-cors-headers = "*"
 channels = "*"
 channels-redis = "*"
-simple-json = "*"
-simplejson = "*"
+drf-nested-routers = "*"
 
 [requires]
 python_version = "3.7"

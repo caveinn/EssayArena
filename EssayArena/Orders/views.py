@@ -1,9 +1,10 @@
-from rest_framework.viewsets import  ModelViewSet, ViewSet
+from rest_framework.viewsets import  ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .models import Order
-from .serializers import OrderSerializer
-from EssayArena.core.permissions import IsAdmin, IsClient, IsOwnerOrReadOnly
+from .models import Order, Bid
+from rest_framework.permissions import AllowAny
+from .serializers import OrderSerializer, BidSerializer
+from EssayArena.core.permissions import IsClient, IsOwnerOrReadOnly
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 
@@ -44,8 +45,19 @@ class OrderViewset(ModelViewSet):
         return Response(serializer.data)
 
     def get_permissions(self):
-        if self.action == 'create' or self.action == 'update' or self.action == 'partial_update':
+        if self.action == 'create' or self.action == 'update' \
+                or self.action == 'partial_update' or self.action == 'delete':
             permission_classes = [IsClient, IsOwnerOrReadOnly]
         else:
-            permission_classes = [IsAuthenticated]
+            permission_classes = [AllowAny]
         return [permision() for permision in permission_classes]
+
+
+class BidViewSet(ModelViewSet):
+    queryset = Bid.objects.all()
+    serializer_class = BidSerializer
+    permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        print(dir(self))
+        return Bid.objects.filter(pk=1)

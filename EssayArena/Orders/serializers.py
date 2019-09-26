@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Order, Application
+from .models import Order, Bid
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 
@@ -39,10 +39,8 @@ class OrderSerializer(serializers.ModelSerializer):
         return order
 
 
-
-
-class ApplicationSerializer(serializers.ModelSerializer):
+class BidSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Application
+        model = Bid
         fields = '__all__'
         read_only_fields = ['order', 'applicant']
