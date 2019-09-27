@@ -22,7 +22,7 @@ class OrderViewset(ModelViewSet):
         serializer.save()
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
-            'chat_trial',
+            f'order_{order.id}',
             {
                 "type": "update_order",
                 'order': serializer.data
@@ -36,7 +36,7 @@ class OrderViewset(ModelViewSet):
         order.delete()
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
-            'chat_trial',
+            f'order_{order.id}',
             {
                 "type": "delete_order",
                 'order': serializer.data

@@ -41,4 +41,13 @@ to get one order `api/orders/<id>/`
 
 to update an order update `api/orders/<id>/`
 
+
+**Websocket**
+There is a websocket intergrated for realtime updates for chances
+in order and bids
+
+to subscribe to the websocket for orders you need to access the url
+
+`ws://127.0.0.1:8000/ws/orders/`
+
 ***more under construction***

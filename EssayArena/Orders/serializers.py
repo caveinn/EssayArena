@@ -25,7 +25,7 @@ class OrderSerializer(serializers.ModelSerializer):
         order.save()
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
-            'chat_trial',
+            f'order_{order.id}',
             {
                 "type": "new_order",
                 'order': {
