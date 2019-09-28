@@ -54,10 +54,10 @@ class OrderConsumer(WebsocketConsumer):
         ))
 
 
-class AppliationConsumer(WebsocketConsumer):
+class BidConsumer(WebsocketConsumer):
     def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = f'orders_{self.room_name}'
+        self.room_group_name = f'bid_{self.room_name}'
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
             self.channel_name
@@ -70,5 +70,14 @@ class AppliationConsumer(WebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
+
+    def create_bid(self):
+        pass
+
+    def update_bid(self):
+        pass
+
+    def delete_bid(self):
+        pass
 
 
