@@ -28,7 +28,6 @@ class OrderConsumer(WebsocketConsumer):
 
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        # Send message to room group
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
@@ -38,7 +37,6 @@ class OrderConsumer(WebsocketConsumer):
         )
 
     def update_order(self, order_obj):
-        # Send message to WebSocket
         self.send(text_data=json.dumps(
             order_obj
         ))
@@ -71,13 +69,20 @@ class BidConsumer(WebsocketConsumer):
             self.channel_name
         )
 
-    def create_bid(self):
-        pass
+    def create_bid(self, bid_obj):
+        self.send(text_data=json.dumps(
+            bid_obj
+        ))
 
-    def update_bid(self):
-        pass
+    def update_bid(self, bid_obj):
+        self.send(text_data=json.dumps(
+            bid_obj
+        ))
 
-    def delete_bid(self):
-        pass
+    def delete_bid(self, bid_obj):
+        self.send(text_data=json.dumps(
+            bid_obj
+        ))
+
 
 
