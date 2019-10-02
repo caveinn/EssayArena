@@ -49,5 +49,9 @@ in order and bids
 to subscribe to the websocket for orders you need to access the url
 
 `ws://127.0.0.1:8000/ws/orders/`
+to subscribe to the websocket for bids you need to access the url
+
+`ws://127.0.0.1:8000/ws/<order_id>/orders/bids/roomn_name`
+
 
 ***more under construction***
