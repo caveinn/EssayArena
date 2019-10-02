@@ -59,8 +59,14 @@ class BidViewSet(ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly, IsWriter)
 
     def create(self, request, *args, **kwargs):
+        order = Order.objects.get(kwargs['order_pk'])
         data = request.data
-        data.update({'bidder': request.user.pk, "order": int(kwargs["order_pk"])})
+        data.update({'bidder': request.user.pk, "order": order.id})
+        if order.is_to_take:
+            data['status'] = Bid.ACCEPTED
+            order.status = Order.ASSIGNED
+            order.save()
+
         serializer = self.serializer_class(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

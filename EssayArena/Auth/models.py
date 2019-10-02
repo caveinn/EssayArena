@@ -37,13 +37,13 @@ class User(AbstractBaseUser):
 
 
 class Client(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE())
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     client_code = models.CharField(max_length=40)
     rating = models.IntegerField()
 
 
 class Writer(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE())
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     ratings = models.IntegerField()
 
 
