@@ -22,6 +22,7 @@ class Order(models.Model):
     body = models.TextField()
     cost = models.DecimalField(max_digits=20, decimal_places=2)
     files = ArrayField(models.CharField(max_length=100), null= True)
+    is_to_take = models.BooleanField(default=True)
 
 
 class Bid(models.Model):
