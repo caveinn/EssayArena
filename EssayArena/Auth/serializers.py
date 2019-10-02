@@ -1,7 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
+import uuid
 
-from .models import User
+from .models import User, Client, Writer
+
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,7 +20,19 @@ class UserSerializer(serializers.ModelSerializer):
         instance = self.Meta.model(**validated_data)
         if password:
             instance.set_password(password)
+
         instance.save()
+        if instance.role == User.CLIENT:
+            client = Client(
+                User=instance,
+                client_code=uuid.uuid4().hex
+            )
+            client.save()
+        elif instance.role == User.WRITER:
+            client = Client(
+                User=instance
+            )
+            client.save()
         return instance
 
 
