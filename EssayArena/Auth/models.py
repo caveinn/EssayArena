@@ -37,9 +37,9 @@ class User(AbstractBaseUser):
 
 
 class Client(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     client_code = models.CharField(max_length=40)
-    rating = models.IntegerField()
+    rating = models.IntegerField(null=True)
 
 
 class Writer(models.Model):

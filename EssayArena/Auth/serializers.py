@@ -20,19 +20,18 @@ class UserSerializer(serializers.ModelSerializer):
         instance = self.Meta.model(**validated_data)
         if password:
             instance.set_password(password)
-
         instance.save()
-        if instance.role == User.CLIENT:
-            client = Client(
-                User=instance,
-                client_code=uuid.uuid4().hex
-            )
-            client.save()
-        elif instance.role == User.WRITER:
-            client = Client(
-                User=instance
-            )
-            client.save()
+        try:
+            if instance.role == User.CLIENT:
+                client = Client(
+                    user=instance,
+                    client_code=uuid.uuid4().hex
+                )
+                client.save()
+        except Exception as e:
+            instance.delete()
+            raise e
+
         return instance
 
 
