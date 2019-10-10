@@ -69,7 +69,15 @@ class BidViewSet(ModelViewSet):
 
         serializer = self.serializer_class(data=data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        bid = serializer.save()
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send(
+            f'order/{order.id}/bids/{bid.id}',
+            {
+                'type': "create_bid",
+                'bid': serializer.data
+            }
+        ))
         return Response(serializer.data)
 
 
